@@ -45,7 +45,7 @@ function dashboard(){
 function fundsView(){
  const list=state.funds.filter(f=>f.name.toLowerCase().includes(state.q.toLowerCase()));
  return `<input id="fundSearch" class="search" placeholder="Search AIA funds…" value="${esc(state.q)}">
- <div class="section"><h2>${list.length} funds</h2><div class="fund-list">${list.map(f=>`<button type="button" class="fund" data-id="${f.id}"><div><div class="fund-name">${esc(f.name)}</div><div class="meta">${f.currency} · ${f.hasPerformance?`Published as of ${esc(f.asOf||state.data?.performance_as_of||"—")}`:"No published performance loaded"}</div></div><span class="badge">${pct(f.oneYear)}</span></button>`).join("")}</div></div>`;
+ <div class="section"><h2>${list.length} funds</h2><div class="fund-list">${list.map(f=>`<button type="button" class="fund" data-id="${f.id}"><div><div class="fund-name">${esc(f.name)}</div><div class="meta">${f.currency} · ${f.hasPerformance?`Published as of ${esc(f.asOf||state.data?.performance_as_of||"—")}`:"AIA 2025 report · return not verified"}</div></div><span class="badge">${pct(f.oneYear)}</span></button>`).join("")}</div></div>`;
 }
 function compare(){
  const f=selected(),b=benchmark();
@@ -54,7 +54,7 @@ function compare(){
  return `<section class="hero"><div class="label">Fund comparison</div><h1>${f.name}</h1><p>AIA published performance versus S&amp;P 500 Total Return for the selected period.</p></section>
  <select id="fundSelect" class="select">${state.funds.map(x=>`<option value="${x.id}" ${x.id===f.id?"selected":""}>${x.name}</option>`).join("")}</select>
  <div class="grid">${rows.map(r=>`<div class="card"><div class="label">${r[0]} — AIA</div><div class="value">${pct(f[r[1]])}</div><div class="meta">S&amp;P 500: ${pct(b[r[1]])} · Difference: ${pct(beat(f[r[1]],b[r[1]]))}</div></div>`).join("")}</div>
- <div class="section"><div class="notice">${f.hasPerformance?"Source: AIA Singapore published fund performance snapshot.":"This fund is in the 41-fund universe, but its published performance is not currently loaded into the dashboard snapshot."}</div></div>`;
+ <div class="section"><div class="notice">${f.hasPerformance?"Source: AIA Singapore published fund performance snapshot.":"AIA's 2025 report is listed for this fund, but the return values are not yet verified in the dashboard snapshot."}</div></div>`;
 }
 
 function projectionInputs(f,b){
