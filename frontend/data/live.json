@@ -116,14 +116,14 @@
     },
     {
       "id": "F010",
-      "oneYear": null,
-      "threeYear": null,
-      "fiveYear": null,
-      "tenYear": null,
-      "sinceInception": null,
+      "oneYear": 21.14,
+      "threeYear": 11.35,
+      "fiveYear": 2.57,
+      "tenYear": 6.27,
+      "sinceInception": 3.26,
       "asOf": "2025-12-31",
       "source": "AIA Annual Funds Report 2025",
-      "status": "Report published; return values not yet verified in dashboard"
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F011",
@@ -226,14 +226,14 @@
     },
     {
       "id": "F020",
-      "oneYear": null,
-      "threeYear": null,
-      "fiveYear": null,
-      "tenYear": null,
-      "sinceInception": null,
+      "oneYear": 15.35,
+      "threeYear": 7.78,
+      "fiveYear": -0.7,
+      "tenYear": 4.86,
+      "sinceInception": 5.62,
       "asOf": "2025-12-31",
       "source": "AIA Annual Funds Report 2025",
-      "status": "Report published; return values not yet verified in dashboard"
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F021",
@@ -469,8 +469,8 @@
   ],
   "latest_published_as_of": "2025-12-31",
   "notes": [
-    "41-fund universe is represented in the dashboard dataset.",
-    "2025 year-end values shown are taken from AIA's official Annual Funds Report 2025 where verified.",
+    "All 41 funds are represented in the dashboard dataset.",
+    "2025 year-end performance values shown are taken from AIA's official Annual Funds Report 2025 where verified.",
     "Where AIA's report does not provide a period because the fund is too new, the period is shown as unavailable rather than inferred.",
     "Each fund displays its individual report/valuation date; USD and SGD fund returns are not currency-normalised against each other.",
     "AIA fund returns are generally calculated in SGD/USD on a bid-to-bid basis with income/dividends reinvested, excluding applicable policy-level charges."
