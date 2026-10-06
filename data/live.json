@@ -1,7 +1,7 @@
 {
   "mode": "published_performance_snapshot",
   "performance_as_of": "Varies by fund",
-  "source": "AIA Singapore Investment Fund Summaries / published fund performance",
+  "source": "AIA Singapore Annual Funds Report 2025 / published fund performance",
   "updated_at": "2026-10-06",
   "live": false,
   "benchmark": {
@@ -17,35 +17,35 @@
   "funds": [
     {
       "id": "F001",
-      "oneYear": 8.27,
-      "threeYear": -2.47,
-      "fiveYear": 1.68,
-      "tenYear": 4.09,
-      "sinceInception": 5.78,
-      "asOf": "2024-12-31"
+      "oneYear": 15.93,
+      "threeYear": 8.25,
+      "fiveYear": 1.09,
+      "tenYear": 5.56,
+      "sinceInception": 6.18,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F004",
-      "oneYear": 10.44,
-      "threeYear": 13.64,
-      "fiveYear": 5.5,
+      "oneYear": 16.86,
+      "threeYear": 15.35,
+      "fiveYear": 6.32,
       "tenYear": null,
-      "sinceInception": 9.04,
+      "sinceInception": 10.19,
       "asOf": "2025-12-31"
     },
     {
       "id": "F006",
-      "oneYear": 8.22,
-      "threeYear": 6.28,
-      "fiveYear": 6.49,
+      "oneYear": 13.74,
+      "threeYear": 11.95,
+      "fiveYear": 3.91,
       "tenYear": null,
-      "sinceInception": 6.56,
-      "asOf": "2025-05-31"
+      "sinceInception": 7.57,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F008",
       "oneYear": 10.41,
-      "threeYear": 8.51,
+      "threeYear": 8.52,
       "fiveYear": 1.12,
       "tenYear": null,
       "sinceInception": 3.78,
@@ -53,12 +53,12 @@
     },
     {
       "id": "F011",
-      "oneYear": 3.05,
-      "threeYear": 6.44,
-      "fiveYear": 4.05,
-      "tenYear": 5.06,
-      "sinceInception": 2.1,
-      "asOf": "2025-06-30"
+      "oneYear": 30.23,
+      "threeYear": 15.38,
+      "fiveYear": 3.18,
+      "tenYear": 8.15,
+      "sinceInception": 3.18,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F012",
@@ -71,39 +71,39 @@
     },
     {
       "id": "F014",
-      "oneYear": 10.55,
-      "threeYear": 0.46,
-      "fiveYear": 3.64,
-      "tenYear": 4.51,
-      "sinceInception": 2.72,
-      "asOf": "2024-12-31"
+      "oneYear": 7.12,
+      "threeYear": 8.87,
+      "fiveYear": 3.6,
+      "tenYear": 4.79,
+      "sinceInception": 2.9,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F016",
-      "oneYear": 6.45,
-      "threeYear": 5.96,
-      "fiveYear": null,
+      "oneYear": 6.53,
+      "threeYear": 9.62,
+      "fiveYear": 3.88,
       "tenYear": null,
-      "sinceInception": 3.32,
-      "asOf": "2025-08-31"
+      "sinceInception": 3.92,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F017",
-      "oneYear": 23.31,
-      "threeYear": 7.85,
-      "fiveYear": 14.04,
-      "tenYear": 10.43,
-      "sinceInception": 3.89,
-      "asOf": "2024-12-31"
+      "oneYear": 11.37,
+      "threeYear": 19.55,
+      "fiveYear": 12.24,
+      "tenYear": 10.77,
+      "sinceInception": 4.17,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F019",
-      "oneYear": 30.14,
-      "threeYear": 2.6,
-      "fiveYear": 16.52,
-      "tenYear": 17.27,
-      "sinceInception": 7.06,
-      "asOf": "2024-12-31"
+      "oneYear": 12.83,
+      "threeYear": 30.1,
+      "fiveYear": 8.94,
+      "tenYear": 17.09,
+      "sinceInception": 7.29,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F021",
@@ -125,12 +125,12 @@
     },
     {
       "id": "F024",
-      "oneYear": 3.02,
-      "threeYear": 3.31,
-      "fiveYear": 8.38,
-      "tenYear": 5.99,
-      "sinceInception": 9.08,
-      "asOf": "2024-12-31"
+      "oneYear": -6.48,
+      "threeYear": 5.74,
+      "fiveYear": 4.92,
+      "tenYear": 5.64,
+      "sinceInception": 8.45,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F025",
@@ -143,12 +143,12 @@
     },
     {
       "id": "F029",
-      "oneYear": 3.66,
-      "threeYear": -2.27,
-      "fiveYear": 0.48,
-      "tenYear": 1.44,
-      "sinceInception": 1.62,
-      "asOf": "2024-12-31"
+      "oneYear": 5.37,
+      "threeYear": 4.65,
+      "fiveYear": 0.12,
+      "tenYear": 1.88,
+      "sinceInception": 1.83,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F032",
@@ -161,36 +161,37 @@
     },
     {
       "id": "F034",
-      "oneYear": 12.05,
-      "threeYear": 1.27,
-      "fiveYear": 5.22,
-      "tenYear": 4.73,
-      "sinceInception": 3.49,
-      "asOf": "2024-12-31"
+      "oneYear": 8.1,
+      "threeYear": 9.67,
+      "fiveYear": 4.55,
+      "tenYear": 5.25,
+      "sinceInception": 3.68,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F035",
-      "oneYear": 16.43,
-      "threeYear": 3.09,
-      "fiveYear": 7.54,
-      "tenYear": 6.39,
-      "sinceInception": 3.9,
-      "asOf": "2024-12-31"
+      "oneYear": 10.8,
+      "threeYear": 12.86,
+      "fiveYear": 7.18,
+      "tenYear": 7.08,
+      "sinceInception": 4.18,
+      "asOf": "2025-12-31"
     },
     {
       "id": "F041",
-      "oneYear": 30.47,
-      "threeYear": 9.27,
-      "fiveYear": 13.6,
-      "tenYear": 11.09,
-      "sinceInception": 3.59,
-      "asOf": "2024-12-31"
+      "oneYear": 7.51,
+      "threeYear": 18.95,
+      "fiveYear": 12.85,
+      "tenYear": 11.4,
+      "sinceInception": 3.74,
+      "asOf": "2025-12-31"
     }
   ],
   "latest_published_as_of": "2025-12-31",
   "notes": [
-    "Latest-date coverage is based on the newest AIA published performance loaded for each fund.",
-    "Older per-fund observations are retained until newer official AIA performance is available.",
-    "AIA fund returns are generally calculated in SGD on a bid-to-bid basis with income/dividends reinvested, excluding applicable policy-level charges."
+    "2025 annual-report observations are used where verified from AIA's official Annual Funds Report 2025.",
+    "Some funds may have newer interim observations or different valuation dates; each fund's asOf date is shown individually.",
+    "Where AIA does not publish a return for a period because the fund is too new, the period is shown as unavailable rather than inferred.",
+    "AIA fund returns are generally calculated in SGD/USD on a bid-to-bid basis with income/dividends reinvested, excluding applicable policy-level charges."
   ]
 }
