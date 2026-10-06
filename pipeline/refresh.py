@@ -1,4 +1,5 @@
 import json, re, requests
+from curl_cffi import requests as cf_requests
 from datetime import datetime, timezone
 from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
