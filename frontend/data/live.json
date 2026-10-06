@@ -1,0 +1,99 @@
+{
+  "mode": "performance_snapshot",
+  "performance_as_of": "2024-12-31",
+  "source": "AIA Singapore Investment Fund Summaries",
+  "updated_at": "2026-10-06",
+  "live": false,
+  "benchmark": {
+    "name": "S&P 500 Total Return",
+    "currency": "USD",
+    "oneYear": 25.02,
+    "threeYear": 8.94,
+    "fiveYear": 14.53,
+    "tenYear": 13.1,
+    "source": "S&P 500 Total Return Index"
+  },
+  "funds": [
+    {
+      "id": "F001",
+      "oneYear": 8.27,
+      "threeYear": -2.47,
+      "fiveYear": 1.68,
+      "tenYear": 4.09,
+      "sinceInception": 5.78,
+      "asOf": "2024-12-31"
+    },
+    {
+      "id": "F014",
+      "oneYear": 10.55,
+      "threeYear": 0.46,
+      "fiveYear": 3.64,
+      "tenYear": 4.51,
+      "sinceInception": 2.72,
+      "asOf": "2024-12-31"
+    },
+    {
+      "id": "F017",
+      "oneYear": 23.31,
+      "threeYear": 7.85,
+      "fiveYear": 14.04,
+      "tenYear": 10.43,
+      "sinceInception": 3.89,
+      "asOf": "2024-12-31"
+    },
+    {
+      "id": "F019",
+      "oneYear": 30.14,
+      "threeYear": 2.6,
+      "fiveYear": 16.52,
+      "tenYear": 17.27,
+      "sinceInception": 7.06,
+      "asOf": "2024-12-31"
+    },
+    {
+      "id": "F024",
+      "oneYear": 3.02,
+      "threeYear": 3.31,
+      "fiveYear": 8.38,
+      "tenYear": 5.99,
+      "sinceInception": 9.08,
+      "asOf": "2024-12-31"
+    },
+    {
+      "id": "F029",
+      "oneYear": 3.66,
+      "threeYear": -2.27,
+      "fiveYear": 0.48,
+      "tenYear": 1.44,
+      "sinceInception": 1.62,
+      "asOf": "2024-12-31"
+    },
+    {
+      "id": "F034",
+      "oneYear": 12.05,
+      "threeYear": 1.27,
+      "fiveYear": 5.22,
+      "tenYear": 4.73,
+      "sinceInception": 3.49,
+      "asOf": "2024-12-31"
+    },
+    {
+      "id": "F035",
+      "oneYear": 16.43,
+      "threeYear": 3.09,
+      "fiveYear": 7.54,
+      "tenYear": 6.39,
+      "sinceInception": 3.9,
+      "asOf": "2024-12-31"
+    },
+    {
+      "id": "F041",
+      "oneYear": 30.47,
+      "threeYear": 9.27,
+      "fiveYear": 13.6,
+      "tenYear": 11.09,
+      "sinceInception": 3.59,
+      "asOf": "2024-12-31"
+    }
+  ]
+}
