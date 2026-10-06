@@ -42,7 +42,7 @@ function dashboard(){
 function fundsView(){
  const list=state.funds.filter(f=>f.name.toLowerCase().includes(state.q.toLowerCase()));
  return `<input id="fundSearch" class="search" placeholder="Search AIA funds…" value="${state.q}">
- <div class="section"><h2>${list.length} funds</h2><div class="fund-list">${list.map(f=>`<button class="fund" data-id="${f.id}"><div><div class="fund-name">${f.name}</div><div class="meta">${f.currency} · ${f.hasPerformance?"Published performance":"Performance pending"}</div></div><span class="badge">${pct(f.oneYear)}</span></button>`).join("")}</div></div>`;
+ <div class="section"><h2>${list.length} funds</h2><div class="fund-list">${list.map(f=>`<button type="button" class="fund" data-id="${f.id}"><div><div class="fund-name">${f.name}</div><div class="meta">${f.currency} · ${f.hasPerformance?"Published performance":"Performance pending"}</div></div><span class="badge">${pct(f.oneYear)}</span></button>`).join("")}</div></div>`;
 }
 
 function compare(){
@@ -66,13 +66,13 @@ function render(){
  const app=document.getElementById("app"); if(!app)return;
  const body=state.tab==="dashboard"?dashboard():state.tab==="funds"?fundsView():state.tab==="compare"?compare():client();
  app.innerHTML=`<header class="top"><div class="brand">AIA ILP Performance</div><div class="sub">Published returns · Singapore</div><div class="status"><span class="dot"></span>PERFORMANCE SNAPSHOT</div></header><main class="content">${body}</main><nav class="bottom"><div class="nav">
- <button data-tab="dashboard" class="${state.tab==="dashboard"?"active":""}"><span class="icon">⌂</span>Dashboard</button>
- <button data-tab="funds" class="${state.tab==="funds"?"active":""}"><span class="icon">◫</span>Funds</button>
- <button data-tab="compare" class="${state.tab==="compare"?"active":""}"><span class="icon">⇄</span>Compare</button>
- <button data-tab="client" class="${state.tab==="client"?"active":""}"><span class="icon">◉</span>Client</button></div></nav>`;
- document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;render()});
+ <button type="button" data-tab="dashboard" class="${state.tab==="dashboard"?"active":""}"><span class="icon">⌂</span>Dashboard</button>
+ <button type="button" data-tab="funds" class="${state.tab==="funds"?"active":""}"><span class="icon">◫</span>Funds</button>
+ <button type="button" data-tab="compare" class="${state.tab==="compare"?"active":""}"><span class="icon">⇄</span>Compare</button>
+ <button type="button" data-tab="client" class="${state.tab==="client"?"active":""}"><span class="icon">◉</span>Client</button></div></nav>`;
+ 
  const s=document.getElementById("fundSearch");if(s)s.oninput=()=>{state.q=s.value;render()};
- document.querySelectorAll(".fund[data-id]").forEach(b=>b.onclick=()=>{state.selected=b.dataset.id;state.tab="compare";render()});
+ 
  const sel=document.getElementById("fundSelect");if(sel)sel.onchange=()=>{state.selected=sel.value;render()};
 }
-load();
+document.addEventListener("click",e=>{const tab=e.target.closest("[data-tab]");if(tab){e.preventDefault();state.tab=tab.dataset.tab;render();return}const fund=e.target.closest(".fund[data-id]");if(fund){e.preventDefault();state.selected=fund.dataset.id;state.tab="compare";render()}});\nload();
