@@ -1,0 +1,15 @@
+{
+  "generated_at": null,
+  "live": false,
+  "benchmark": {
+    "symbol": "^SP500TR",
+    "name": "S&P 500 Total Return",
+    "prices": []
+  },
+  "funds": [],
+  "failures": [
+    {
+      "message": "Awaiting first verified refresh"
+    }
+  ]
+}
