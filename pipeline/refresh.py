@@ -15,6 +15,29 @@ def clean_num(s):
     m=re.search(r"[-+]?\d+(?:,\d{3})*(?:\.\d+)?", s.replace("%",""))
     return float(m.group(0).replace(",","")) if m else None
 
+
+def investing_slug(name):
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+def investing_quote(name):
+    """Fallback quote only. Third-party source; never presented as official AIA performance."""
+    slug = investing_slug(name)
+    url = f"https://www.investing.com/funds/{slug}"
+    headers = {"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/153 Safari/537.36","Accept":"text/html,application/xhtml+xml"}
+    try:
+        r = cf_requests.get(url, headers=headers, timeout=25, impersonate="chrome")
+        if r.status_code >= 400:
+            return None, url, f"HTTP {r.status_code}"
+        soup = BeautifulSoup(r.text, "html.parser")
+        text = re.sub(r"\s+", " ", soup.get_text(" ", strip=True))
+        for pat in [r"\b(\d+\.\d+)\s+[+-]\d+\.\d+\s+[+-]\d+\.\d+%", r"\b(\d+\.\d{3,6})\s+[+-]\d+\.\d+"]:
+            m = re.search(pat, text)
+            if m:
+                return float(m.group(1)), url, None
+        return None, url, "Current quote not found"
+    except Exception as e:
+        return None, url, str(e)[:200]
+
 def performance_from_tables(page):
     tables=page.locator("table").all_inner_texts()
     for raw in tables:
@@ -91,23 +114,31 @@ def main():
                     raise RuntimeError("AIA page loaded but no performance/bid values were rendered")
                 results.append({**f,"latest":latest,"ytd":None,"oneYear":perf.get("oneYear"),"threeYear":perf.get("threeYear"),"fiveYear":perf.get("fiveYear"),"tenYear":perf.get("tenYear"),"sinceInception":perf.get("sinceInception"),"source_url":url,"status":"Live from AIA"})
             except Exception as e:
-                failures.append({"fund":name,"message":str(e)[:300]})
-                results.append({**f,"status":"Feed unavailable"})
+                failures.append({"fund":name,"message":"Official AIA route failed: "+str(e)[:220]})
+                latest, fallback_url, fallback_err = investing_quote(name)
+                if latest is not None:
+                    results.append({**f,"latest":latest,"ytd":None,"oneYear":None,"threeYear":None,"fiveYear":None,"tenYear":None,"sinceInception":None,"source_url":fallback_url,"status":"Fallback quote - third party"})
+                else:
+                    failures.append({"fund":name,"message":"Fallback quote failed: "+str(fallback_err)[:180]})
+                    results.append({**f,"status":"Feed unavailable"})
         browser.close()
     try:
         sp=yahoo_history()
     except Exception as e:
         sp=[]
         failures.append({"fund":"S&P 500 Total Return","message":"Yahoo chart retrieval failed: "+str(e)[:250]})
-    coverage=sum(1 for f in results if f.get("status")=="Live from AIA")
-    live=coverage==len(universe) and len(sp)>250
-    out={"generated_at":datetime.now(timezone.utc).isoformat(),"live":live,
-         "coverage":{"aia_funds_live":coverage,"aia_funds_total":len(universe),"benchmark_history_points":len(sp)},
+    official_coverage=sum(1 for f in results if f.get("status")=="Live from AIA")
+    fallback_coverage=sum(1 for f in results if f.get("status")=="Fallback quote - third party")
+    coverage=official_coverage
+    live=official_coverage==len(universe) and len(sp)>250
+    fallback_live=fallback_coverage>0 and len(sp)>250
+    out={"generated_at":datetime.now(timezone.utc).isoformat(),"live":live,"fallback_live":fallback_live,
+         "coverage":{"aia_funds_live":official_coverage,"aia_funds_total":len(universe),"fallback_quotes_live":fallback_coverage,"benchmark_history_points":len(sp)},
          "benchmark":{"symbol":"^SP500TR","name":"S&P 500 Total Return","currency":"USD","source":"Yahoo Finance","prices":sp},
          "funds":results,"failures":failures}
     OUT.write_text(json.dumps(out,indent=2))
-    print(json.dumps({"live":live,"coverage":coverage,"total":len(universe),"sp_points":len(sp),"failures":len(failures)},indent=2))
-    if coverage==0 or not sp:
-        raise SystemExit("No verified live data was retrieved; refusing to publish as live.")
+    print(json.dumps({"live":live,"official_coverage":official_coverage,"fallback_coverage":fallback_coverage,"total":len(universe),"sp_points":len(sp),"failures":len(failures)},indent=2))
+    if (official_coverage==0 and fallback_coverage==0) or not sp:
+        raise SystemExit("No verified live fund quotes or benchmark data were retrieved; refusing to publish.")
 if __name__=="__main__":
     main()
