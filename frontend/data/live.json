@@ -22,7 +22,31 @@
       "fiveYear": 1.09,
       "tenYear": 5.56,
       "sinceInception": 6.18,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F002",
+      "oneYear": 18.95,
+      "threeYear": null,
+      "fiveYear": null,
+      "tenYear": null,
+      "sinceInception": 14.28,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F003",
+      "oneYear": 13.42,
+      "threeYear": null,
+      "fiveYear": null,
+      "tenYear": null,
+      "sinceInception": 13.18,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F004",
@@ -31,7 +55,20 @@
       "fiveYear": 6.32,
       "tenYear": null,
       "sinceInception": 10.19,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F005",
+      "oneYear": 10.44,
+      "threeYear": 13.66,
+      "fiveYear": 5.5,
+      "tenYear": null,
+      "sinceInception": 9.04,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F006",
@@ -40,7 +77,20 @@
       "fiveYear": 3.91,
       "tenYear": null,
       "sinceInception": 7.57,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F007",
+      "oneYear": 7.49,
+      "threeYear": 10.36,
+      "fiveYear": 3.05,
+      "tenYear": null,
+      "sinceInception": 5.43,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F008",
@@ -49,7 +99,31 @@
       "fiveYear": 1.12,
       "tenYear": null,
       "sinceInception": 3.78,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F009",
+      "oneYear": 4.45,
+      "threeYear": 6.98,
+      "fiveYear": 0.4,
+      "tenYear": null,
+      "sinceInception": 2.52,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F010",
+      "oneYear": null,
+      "threeYear": null,
+      "fiveYear": null,
+      "tenYear": null,
+      "sinceInception": null,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Report published; return values not yet verified in dashboard"
     },
     {
       "id": "F011",
@@ -58,7 +132,9 @@
       "fiveYear": 3.18,
       "tenYear": 8.15,
       "sinceInception": 3.18,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F012",
@@ -67,7 +143,20 @@
       "fiveYear": 8.05,
       "tenYear": 5.07,
       "sinceInception": 1.8,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F013",
+      "oneYear": 6.03,
+      "threeYear": null,
+      "fiveYear": null,
+      "tenYear": null,
+      "sinceInception": 9.86,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F014",
@@ -76,7 +165,20 @@
       "fiveYear": 3.6,
       "tenYear": 4.79,
       "sinceInception": 2.9,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F015",
+      "oneYear": 2.25,
+      "threeYear": 1.42,
+      "fiveYear": -3.23,
+      "tenYear": -0.04,
+      "sinceInception": 0.86,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F016",
@@ -85,7 +187,9 @@
       "fiveYear": 3.88,
       "tenYear": null,
       "sinceInception": 3.92,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F017",
@@ -94,7 +198,20 @@
       "fiveYear": 12.24,
       "tenYear": 10.77,
       "sinceInception": 4.17,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F018",
+      "oneYear": 1.57,
+      "threeYear": 3.43,
+      "fiveYear": 0.56,
+      "tenYear": 3.27,
+      "sinceInception": 3.58,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F019",
@@ -103,16 +220,31 @@
       "fiveYear": 8.94,
       "tenYear": 17.09,
       "sinceInception": 7.29,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F020",
+      "oneYear": null,
+      "threeYear": null,
+      "fiveYear": null,
+      "tenYear": null,
+      "sinceInception": null,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Report published; return values not yet verified in dashboard"
     },
     {
       "id": "F021",
-      "oneYear": 5.89,
-      "threeYear": -1.31,
-      "fiveYear": -1.49,
-      "tenYear": 3.19,
-      "sinceInception": 6.44,
-      "asOf": "2025-06-30"
+      "oneYear": 20.49,
+      "threeYear": 9.47,
+      "fiveYear": -2.38,
+      "tenYear": 5.85,
+      "sinceInception": null,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F022",
@@ -121,7 +253,20 @@
       "fiveYear": 6.45,
       "tenYear": 5.42,
       "sinceInception": 4.71,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F023",
+      "oneYear": -3.86,
+      "threeYear": 6.49,
+      "fiveYear": 2.78,
+      "tenYear": 4.47,
+      "sinceInception": 5.3,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F024",
@@ -130,7 +275,9 @@
       "fiveYear": 4.92,
       "tenYear": 5.64,
       "sinceInception": 8.45,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F025",
@@ -139,7 +286,42 @@
       "fiveYear": 3.62,
       "tenYear": 5.31,
       "sinceInception": 6.36,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F026",
+      "oneYear": 3.69,
+      "threeYear": 3.87,
+      "fiveYear": 4.7,
+      "tenYear": 7.55,
+      "sinceInception": 5.14,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F027",
+      "oneYear": 20.94,
+      "threeYear": 14.12,
+      "fiveYear": 6.9,
+      "tenYear": 6.06,
+      "sinceInception": 3.18,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F028",
+      "oneYear": 30.22,
+      "threeYear": 20.13,
+      "fiveYear": 10.54,
+      "tenYear": 8.14,
+      "sinceInception": 1.18,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F029",
@@ -148,7 +330,31 @@
       "fiveYear": 0.12,
       "tenYear": 1.88,
       "sinceInception": 1.83,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F030",
+      "oneYear": 12.05,
+      "threeYear": 9.11,
+      "fiveYear": 3.1,
+      "tenYear": 4.88,
+      "sinceInception": null,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F031",
+      "oneYear": 15.94,
+      "threeYear": 10.7,
+      "fiveYear": 3.51,
+      "tenYear": 6.12,
+      "sinceInception": 4.74,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F032",
@@ -157,7 +363,20 @@
       "fiveYear": 13.28,
       "tenYear": 9.02,
       "sinceInception": 4.1,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F033",
+      "oneYear": 6.43,
+      "threeYear": 7.16,
+      "fiveYear": 2.43,
+      "tenYear": 3.93,
+      "sinceInception": 3.57,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F034",
@@ -166,7 +385,9 @@
       "fiveYear": 4.55,
       "tenYear": 5.25,
       "sinceInception": 3.68,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F035",
@@ -175,7 +396,64 @@
       "fiveYear": 7.18,
       "tenYear": 7.08,
       "sinceInception": 4.18,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F036",
+      "oneYear": 22.76,
+      "threeYear": 8.27,
+      "fiveYear": 0.04,
+      "tenYear": 6.03,
+      "sinceInception": 8.02,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F037",
+      "oneYear": 7.56,
+      "threeYear": 5.1,
+      "fiveYear": 1.36,
+      "tenYear": 3,
+      "sinceInception": 3.71,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F038",
+      "oneYear": 1.9,
+      "threeYear": 2.99,
+      "fiveYear": 2.09,
+      "tenYear": 1.54,
+      "sinceInception": 0.98,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F039",
+      "oneYear": 8.03,
+      "threeYear": 10.17,
+      "fiveYear": null,
+      "tenYear": null,
+      "sinceInception": 6.81,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
+    },
+    {
+      "id": "F040",
+      "oneYear": 11.99,
+      "threeYear": 10.44,
+      "fiveYear": 14.14,
+      "tenYear": 10.42,
+      "sinceInception": 1.43,
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     },
     {
       "id": "F041",
@@ -184,14 +462,17 @@
       "fiveYear": 12.85,
       "tenYear": 11.4,
       "sinceInception": 3.74,
-      "asOf": "2025-12-31"
+      "asOf": "2025-12-31",
+      "source": "AIA Annual Funds Report 2025",
+      "status": "Verified from AIA Annual Funds Report 2025"
     }
   ],
   "latest_published_as_of": "2025-12-31",
   "notes": [
-    "2025 annual-report observations are used where verified from AIA's official Annual Funds Report 2025.",
-    "Some funds may have newer interim observations or different valuation dates; each fund's asOf date is shown individually.",
-    "Where AIA does not publish a return for a period because the fund is too new, the period is shown as unavailable rather than inferred.",
+    "41-fund universe is represented in the dashboard dataset.",
+    "2025 year-end values shown are taken from AIA's official Annual Funds Report 2025 where verified.",
+    "Where AIA's report does not provide a period because the fund is too new, the period is shown as unavailable rather than inferred.",
+    "Each fund displays its individual report/valuation date; USD and SGD fund returns are not currency-normalised against each other.",
     "AIA fund returns are generally calculated in SGD/USD on a bid-to-bid basis with income/dividends reinvested, excluding applicable policy-level charges."
   ]
 }
