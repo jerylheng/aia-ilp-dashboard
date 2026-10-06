@@ -1,5 +1,6 @@
 import json, re, requests
 from curl_cffi import requests as cf_requests
+from bs4 import BeautifulSoup
 from datetime import datetime, timezone
 from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
@@ -88,7 +89,6 @@ def main():
         browser=p.chromium.launch(headless=True,args=["--disable-http2"])
         page=browser.new_page()
         html=cf_requests.get(AIA_INDEX,headers={"User-Agent":"Mozilla/5.0","Accept":"text/html,application/xhtml+xml"},timeout=30,impersonate="chrome").text
-        from bs4 import BeautifulSoup
         soup=BeautifulSoup(html,"html.parser")
         urls={}
         for a in soup.find_all("a"):
