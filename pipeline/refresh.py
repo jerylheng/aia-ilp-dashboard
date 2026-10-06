@@ -61,9 +61,10 @@ def main():
     failures=[]
     results=[]
     with sync_playwright() as p:
-        browser=p.chromium.launch(headless=True)
+        browser=p.chromium.launch(headless=True,args=["--disable-http2"])
         page=browser.new_page()
-        page.goto(AIA_INDEX,wait_until="domcontentloaded",timeout=TIMEOUT)
+        page.goto(AIA_INDEX,wait_until="commit",timeout=TIMEOUT)
+        page.wait_for_timeout(5000)
         page.wait_for_timeout(3000)
         urls=href_map(page)
         for f in universe:
