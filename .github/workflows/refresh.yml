@@ -11,14 +11,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: {python-version: "3.12"}
+        with:
+          python-version: "3.12"
       - run: pip install -r pipeline/requirements.txt
+      - run: python -m playwright install --with-deps chromium
       - run: python pipeline/refresh.py
-      - name: Commit refresh
+      - name: Publish refreshed data
         run: |
+          mkdir -p frontend/data
+          cp data/live.json frontend/data/live.json
+          cp data/funds.json frontend/data/funds.json
           git config user.name "AIA ILP Dashboard Bot"
           git config user.email "actions@users.noreply.github.com"
-          mkdir -p frontend/data && cp data/live.json frontend/data/live.json && cp data/funds.json frontend/data/funds.json
           git add data/live.json frontend/data/live.json frontend/data/funds.json
           git diff --cached --quiet || git commit -m "Refresh dashboard data"
           git push
