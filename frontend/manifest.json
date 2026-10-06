@@ -1,0 +1,8 @@
+{
+  "name": "AIA ILP Performance Dashboard",
+  "short_name": "AIA ILP",
+  "start_url": "./",
+  "display": "standalone",
+  "theme_color": "#101828",
+  "background_color": "#f5f7fb"
+}
