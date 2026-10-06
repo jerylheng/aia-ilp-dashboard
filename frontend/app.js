@@ -59,7 +59,7 @@ function compare(){
 
 function projectionInputs(f,b){
  const p=state.projection;
- const defaultAia=f?.fiveYear!=null?Number(f.fiveYear):null;
+ const defaultAia=f?.fiveYear!=null?Number(f.fiveYear):(f?.threeYear!=null?Number(f.threeYear):(f?.oneYear!=null?Number(f.oneYear):null));
  const defaultSp=b?.fiveYear!=null?Number(b.fiveYear):null;
  if(p.aiaReturn==null&&defaultAia!=null)p.aiaReturn=defaultAia;
  if(p.spReturn==null&&defaultSp!=null)p.spReturn=defaultSp;
@@ -69,7 +69,7 @@ function projectionInputs(f,b){
  <label>Additional contribution<input id="pContribution" type="number" min="0" step="100" value="${p.contribution}"></label>
  <label>Contribution frequency<select id="pFrequency"><option value="monthly" ${p.frequency==="monthly"?"selected":""}>Monthly</option><option value="yearly" ${p.frequency==="yearly"?"selected":""}>Yearly</option></select></label>
  <label>Projection period<input id="pYears" type="number" min="1" max="60" step="1" value="${p.years}"></label>
- <label>AIA expected return<input id="pAiaReturn" type="number" step="0.1" value="${p.aiaReturn??""}" placeholder="e.g. 8"></label>
+ <label>AIA expected return <span class="field-note">Auto from selected fund</span><input id="pAiaReturn" type="number" step="0.1" value="${p.aiaReturn??""}" readonly></label>
  <label>S&amp;P 500 expected return<input id="pSpReturn" type="number" step="0.1" value="${p.spReturn??""}" placeholder="e.g. 8"></label>
  </div>`;
 }
@@ -111,7 +111,7 @@ function projection(){
  const rows=simulate(p.initial,p.contribution,p.frequency,p.years,aiaRate,spRate,p.startYear);
  const last=rows[rows.length-1],gainA=last.aia-last.total,gainS=last.sp-last.total;
  return `<section class="hero"><div class="label">Client projection</div><h1>${esc(f?.name||"AIA fund")} vs S&amp;P 500</h1><p>Illustrative future-value model using your assumed returns. This is not a policy benefit illustration or a guaranteed return.</p></section>
- <div class="section"><h2>1. Set the scenario</h2>${projectionInputs(f,b)}<button type="button" class="primary" id="recalculate">Calculate projection</button></div>
+ <div class="section"><h2>1. Set the scenario</h2><label class="fund-picker">Selected AIA fund<select id="projectionFund" class="select">${state.funds.map(x=>`<option value="${x.id}" ${x.id===f.id?"selected":""}>${esc(x.name)}</option>`).join("")}</select></label>${projectionInputs(f,b)}<button type="button" class="primary" id="recalculate">Calculate projection</button></div>
  <div class="grid projection-summary">
  <div class="card"><div class="label">Total contributions</div><div class="value">${money(last.total)}</div></div>
  <div class="card"><div class="label">AIA projected value</div><div class="value">${money(last.aia)}</div><div class="meta">${pct(aiaRate)} assumed · gain ${money(gainA)}</div></div>
@@ -141,7 +141,8 @@ function render(){
  const s=document.getElementById("fundSearch");if(s)s.oninput=()=>{state.q=s.value;render()};
  
  const sel=document.getElementById("fundSelect");if(sel)sel.onchange=()=>{state.selected=sel.value;state.projection.aiaReturn=null;render()};
- const recalc=document.getElementById("recalculate");if(recalc)recalc.onclick=()=>{state.projection.initial=num("pInitial",state.projection.initial);state.projection.startYear=num("pStart",state.projection.startYear,1900,2100);state.projection.contribution=num("pContribution",state.projection.contribution);state.projection.years=num("pYears",state.projection.years,1,60);state.projection.aiaReturn=num("pAiaReturn",state.projection.aiaReturn??0,-99.9,100);state.projection.spReturn=num("pSpReturn",state.projection.spReturn??0,-99.9,100);render()};
+ const projectionFund=document.getElementById("projectionFund");if(projectionFund)projectionFund.onchange=()=>{state.selected=projectionFund.value;state.projection.aiaReturn=null;render()};
+ const recalc=document.getElementById("recalculate");if(recalc)recalc.onclick=()=>{state.projection.initial=num("pInitial",state.projection.initial);state.projection.startYear=num("pStart",state.projection.startYear,1900,2100);state.projection.contribution=num("pContribution",state.projection.contribution);state.projection.years=num("pYears",state.projection.years,1,60);state.projection.spReturn=num("pSpReturn",state.projection.spReturn??0,-99.9,100);render()};
  const freq=document.getElementById("pFrequency");if(freq)freq.onchange=()=>{state.projection.frequency=freq.value;render()};
 }
 document.addEventListener("click",e=>{const tab=e.target.closest("[data-tab]");if(tab){e.preventDefault();state.tab=tab.dataset.tab;render();return}const fund=e.target.closest(".fund[data-id]");if(fund){e.preventDefault();state.selected=fund.dataset.id;state.tab="compare";render()}});
