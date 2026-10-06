@@ -2,7 +2,7 @@ const EMBEDDED_FUNDS=[
 ["F001","AIA Acorns of Asia Fund","SGD"],["F002","AIA Adventurous Index Fund (USD)","USD"],["F003","AIA Adventurous Index Fund","SGD"],["F004","AIA Elite Adventurous Fund (USD)","USD"],["F005","AIA Elite Adventurous Fund","SGD"],["F006","AIA Elite Balanced Fund (USD)","USD"],["F007","AIA Elite Balanced Fund","SGD"],["F008","AIA Elite Conservative Fund (USD)","USD"],["F009","AIA Elite Conservative Fund","SGD"],["F010","AIA Emerging Markets Balanced Fund","SGD"],["F011","AIA Emerging Markets Equity Fund","SGD"],["F012","AIA European Equity Fund","SGD"],["F013","AIA Global Adventurous Income Fund","SGD"],["F014","AIA Global Balanced Fund","SGD"],["F015","AIA Global Bond Fund","SGD"],["F016","AIA Global Dynamic Income Fund","SGD"],["F017","AIA Global Equity Fund","SGD"],["F018","AIA Global Property Returns Fund","SGD"],["F019","AIA Global Technology Fund","SGD"],["F020","AIA Greater China Balanced Fund","SGD"],["F021","AIA Greater China Equity Fund","SGD"],["F022","AIA Growth Fund","SGD"],["F023","AIA India Balanced Fund","SGD"],["F024","AIA India Equity Fund","SGD"],["F025","AIA India Opportunities Fund","SGD"],["F026","AIA International Health Care Fund","SGD"],["F027","AIA Japan Balanced Fund","SGD"],["F028","AIA Japan Equity Fund","SGD"],["F029","AIA Multi Select 30","SGD"],["F030","AIA Multi Select 50","SGD"],["F031","AIA Multi Select 70","SGD"],["F032","AIA Portfolio 100","SGD"],["F033","AIA Portfolio 30","SGD"],["F034","AIA Portfolio 50","SGD"],["F035","AIA Portfolio 70","SGD"],["F036","AIA Regional Equity Fund","SGD"],["F037","AIA Regional Fixed Income Fund","SGD"],["F038","AIA S$ Money Market Fund","SGD"],["F039","AIA Shariah Global Diversified Fund","SGD"],["F040","AIA Sustainable Multi-Thematic Fund","SGD"],["F041","AIA US Equity Fund","SGD"]
 ].map(x=>({id:x[0],name:x[1],currency:x[2]}));
 
-let state={tab:"dashboard",q:"",selected:"F041",data:null,projection:{initial:100000,startYear:new Date().getFullYear(),contribution:1000,frequency:"monthly",years:10,aiaReturn:null,spReturn:null}};
+let state={tab:"dashboard",q:"",selected:"F041",data:null,projection:{initial:100000,startYear:new Date().getFullYear(),contribution:1000,frequency:"monthly",years:10,aiaReturn:null,aiaReturnMode:"auto",spReturn:null}};
 
 async function load(){
   try{
@@ -61,15 +61,22 @@ function projectionInputs(f,b){
  const p=state.projection;
  const defaultAia=f?.fiveYear!=null?Number(f.fiveYear):(f?.threeYear!=null?Number(f.threeYear):(f?.oneYear!=null?Number(f.oneYear):null));
  const defaultSp=b?.fiveYear!=null?Number(b.fiveYear):null;
- if(p.aiaReturn==null&&defaultAia!=null)p.aiaReturn=defaultAia;
+ if(p.aiaReturnMode==="auto"){
+   p.aiaReturn=defaultAia;
+ }else if(p.aiaReturn==null&&defaultAia!=null){
+   p.aiaReturn=defaultAia;
+ }
  if(p.spReturn==null&&defaultSp!=null)p.spReturn=defaultSp;
+ const auto=p.aiaReturnMode!=="manual";
+ const aiaValue=p.aiaReturn??"";
  return `<div class="projection-grid">
  <label>Starting amount<input id="pInitial" type="number" min="0" step="1000" value="${p.initial}"></label>
  <label>Starting year<input id="pStart" type="number" min="1900" max="2100" step="1" value="${p.startYear}"></label>
  <label>Additional contribution<input id="pContribution" type="number" min="0" step="100" value="${p.contribution}"></label>
  <label>Contribution frequency<select id="pFrequency"><option value="monthly" ${p.frequency==="monthly"?"selected":""}>Monthly</option><option value="yearly" ${p.frequency==="yearly"?"selected":""}>Yearly</option></select></label>
  <label>Projection period<input id="pYears" type="number" min="1" max="60" step="1" value="${p.years}"></label>
- <label>AIA expected return <span class="field-note">Auto from selected fund</span><input id="pAiaReturn" type="number" step="0.1" value="${p.aiaReturn??""}" readonly></label>
+ <label>AIA return method<select id="pAiaReturnMode"><option value="auto" ${auto?"selected":""}>Automatic — selected fund</option><option value="manual" ${!auto?"selected":""}>Manual — key in return</option></select></label>
+ <label>AIA expected return <span class="field-note">${auto?"Auto from selected fund":"Manual assumption"}</span><input id="pAiaReturn" type="number" step="0.1" min="-99.9" max="100" value="${aiaValue}" ${auto?"readonly":""} placeholder="e.g. 8"></label>
  <label>S&amp;P 500 expected return<input id="pSpReturn" type="number" step="0.1" value="${p.spReturn??""}" placeholder="e.g. 8"></label>
  </div>`;
 }
@@ -103,7 +110,7 @@ function chartSvg(rows){
 
 function projection(){
  const f=selected(),b=benchmark(),p=state.projection;
- if(p.aiaReturn==null&&f?.fiveYear!=null)p.aiaReturn=Number(f.fiveYear);
+ if(p.aiaReturnMode==="auto"&&f?.fiveYear!=null)p.aiaReturn=Number(f.fiveYear);
  if(p.spReturn==null&&b?.fiveYear!=null)p.spReturn=Number(b.fiveYear);
  const aiaRate=Number(p.aiaReturn),spRate=Number(p.spReturn);
  const valid=[p.initial,p.startYear,p.contribution,p.years,aiaRate,spRate].every(Number.isFinite)&&p.initial>=0&&p.startYear>=1900&&p.startYear<=2100&&p.contribution>=0&&p.years>=1&&p.years<=60&&aiaRate>-100&&spRate>-100;
@@ -142,7 +149,8 @@ function render(){
  
  const sel=document.getElementById("fundSelect");if(sel)sel.onchange=()=>{state.selected=sel.value;state.projection.aiaReturn=null;render()};
  const projectionFund=document.getElementById("projectionFund");if(projectionFund)projectionFund.onchange=()=>{state.selected=projectionFund.value;state.projection.aiaReturn=null;render()};
- const recalc=document.getElementById("recalculate");if(recalc)recalc.onclick=()=>{state.projection.initial=num("pInitial",state.projection.initial);state.projection.startYear=num("pStart",state.projection.startYear,1900,2100);state.projection.contribution=num("pContribution",state.projection.contribution);state.projection.years=num("pYears",state.projection.years,1,60);state.projection.spReturn=num("pSpReturn",state.projection.spReturn??0,-99.9,100);render()};
+ const aiaMode=document.getElementById("pAiaReturnMode");if(aiaMode)aiaMode.onchange=()=>{const next=aiaMode.value;state.projection.aiaReturnMode=next;if(next==="auto")state.projection.aiaReturn=null;render()};
+ const recalc=document.getElementById("recalculate");if(recalc)recalc.onclick=()=>{state.projection.initial=num("pInitial",state.projection.initial);state.projection.startYear=num("pStart",state.projection.startYear,1900,2100);state.projection.contribution=num("pContribution",state.projection.contribution);state.projection.years=num("pYears",state.projection.years,1,60);if(state.projection.aiaReturnMode==="manual")state.projection.aiaReturn=num("pAiaReturn",state.projection.aiaReturn??0,-99.9,100);state.projection.spReturn=num("pSpReturn",state.projection.spReturn??0,-99.9,100);render()};
  const freq=document.getElementById("pFrequency");if(freq)freq.onchange=()=>{state.projection.frequency=freq.value;render()};
 }
 document.addEventListener("click",e=>{const tab=e.target.closest("[data-tab]");if(tab){e.preventDefault();state.tab=tab.dataset.tab;render();return}const fund=e.target.closest(".fund[data-id]");if(fund){e.preventDefault();state.selected=fund.dataset.id;state.tab="compare";render()}});
