@@ -21,6 +21,11 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Prepare dashboard data
+        run: |
+          mkdir -p frontend/data
+          cp data/funds.json frontend/data/funds.json
+          if [ -f data/live.json ]; then cp data/live.json frontend/data/live.json; fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: frontend
