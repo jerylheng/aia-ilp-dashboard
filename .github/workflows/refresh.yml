@@ -1,0 +1,23 @@
+name: Refresh AIA ILP data
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 1 * * *"
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r pipeline/requirements.txt
+      - run: python pipeline/refresh.py
+      - name: Commit refresh
+        run: |
+          git config user.name "AIA ILP Dashboard Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/live.json
+          git diff --cached --quiet || git commit -m "Refresh dashboard data"
+          git push
