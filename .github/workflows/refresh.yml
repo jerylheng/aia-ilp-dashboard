@@ -1,33 +1,28 @@
-name: Refresh AIA ILP data
+name: Publish AIA ILP performance snapshot
 on:
   push:
     paths:
-      - "pipeline/**"
+      - "data/live.json"
       - "data/funds.json"
+      - "frontend/**"
       - ".github/workflows/refresh.yml"
   workflow_dispatch:
-  schedule:
-    - cron: "30 1 * * *"
 permissions:
   contents: write
 jobs:
-  refresh:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install -r pipeline/requirements.txt
-      - run: python -m playwright install --with-deps chromium
-      - run: python pipeline/refresh.py
-      - name: Publish refreshed data
+      - name: Prepare dashboard data
         run: |
           mkdir -p frontend/data
           cp data/live.json frontend/data/live.json
           cp data/funds.json frontend/data/funds.json
+      - name: Commit published data
+        run: |
           git config user.name "AIA ILP Dashboard Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/live.json frontend/data/live.json frontend/data/funds.json
-          git diff --cached --quiet || git commit -m "Refresh dashboard data"
+          git add frontend/data/live.json frontend/data/funds.json
+          git diff --cached --quiet || git commit -m "Publish performance snapshot"
           git push
