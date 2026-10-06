@@ -1,6 +1,6 @@
 const FALLBACK="./data/funds.json";
 let state={tab:"dashboard",q:"",selected:null,data:null};
-async function load(){try{const r=await fetch("./data/live.json",{cache:"no-store"});state.data=await r.json()}catch(e){const r=await fetch(FALLBACK);state.data=await r.json()}state.selected=state.data.funds&&state.data.funds[0]?state.data.funds[0].id:null;render()}
+async function load(){try{const r=await fetch("./data/live.json",{cache:"no-store"});if(!r.ok)throw new Error("live data unavailable");state.data=await r.json()}catch(e){try{const r=await fetch(FALLBACK);if(!r.ok)throw new Error("fund universe unavailable");state.data=await r.json()}catch(e2){state.data={live:false,coverage:{aia_funds_live:0,aia_funds_total:0},funds:[],error:"Dashboard data is temporarily unavailable."}}}state.selected=state.data.funds&&state.data.funds[0]?state.data.funds[0].id:null;render()}
 function setTab(t){state.tab=t;render()}
 function funds(){return state.data&&state.data.funds?state.data.funds:[]}
 function selected(){return funds().find(function(f){return f.id===state.selected})||funds()[0]}
