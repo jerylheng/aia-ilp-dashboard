@@ -1,5 +1,5 @@
-const FALLBACK="../data/funds.json";let state={tab:"dashboard",q:"",data:null};
-async function load(){try{const r=await fetch("../data/live.json",{cache:"no-store"});state.data=await r.json()}catch(e){const r=await fetch(FALLBACK);state.data=await r.json()}render()}
+const FALLBACK="./data/funds.json";let state={tab:"dashboard",q:"",data:null};
+async function load(){try{const r=await fetch("./data/live.json",{cache:"no-store"});state.data=await r.json()}catch(e){const r=await fetch(FALLBACK);state.data=await r.json()}render()}
 function setTab(t){state.tab=t;render()}
 function funds(){return state.data.funds||[]}
 function status(){return state.data.live?"LIVE DATA":"LIVE FEED NOT CONNECTED"}
