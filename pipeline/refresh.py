@@ -64,10 +64,17 @@ def main():
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True,args=["--disable-http2"])
         page=browser.new_page()
-        page.goto(AIA_INDEX,wait_until="commit",timeout=TIMEOUT)
-        page.wait_for_timeout(5000)
-        page.wait_for_timeout(3000)
-        urls=href_map(page)
+        html=cf_requests.get(AIA_INDEX,headers={"User-Agent":"Mozilla/5.0","Accept":"text/html,application/xhtml+xml"},timeout=30,impersonate="chrome").text
+        from bs4 import BeautifulSoup
+        soup=BeautifulSoup(html,"html.parser")
+        urls={}
+        for a in soup.find_all("a"):
+            txt=re.sub(r"\s+"," ",a.get_text(" ",strip=True))
+            href=a.get("href")
+            if not href: continue
+            for name in [x["name"] for x in universe]:
+                if txt==name or name in txt:
+                    urls[name]=("https://www.aia.com.sg"+href) if href.startswith("/") else href
         for f in universe:
             name=f["name"]
             url=urls.get(name)
