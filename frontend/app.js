@@ -12,7 +12,7 @@ async function load(){
     state.data={mode:"performance_snapshot",funds:[],benchmark:null};
   }
   const snap=new Map((state.data.funds||[]).map(x=>[x.id,x]));
-  state.funds=EMBEDDED_FUNDS.map(f=>({...f,...(snap.get(f.id)||{}),hasPerformance:snap.has(f.id)}));
+  state.funds=EMBEDDED_FUNDS.map(f=>{const snapFund=snap.get(f.id);return {...f,...(snapFund||{}),hasPerformance:Boolean(snapFund&&snapFund.oneYear!=null)}});
   render();
 }
 
