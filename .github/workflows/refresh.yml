@@ -1,5 +1,10 @@
 name: Refresh AIA ILP data
 on:
+  push:
+    paths:
+      - "pipeline/**"
+      - "data/funds.json"
+      - ".github/workflows/refresh.yml"
   workflow_dispatch:
   schedule:
     - cron: "30 1 * * *"
